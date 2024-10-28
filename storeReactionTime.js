@@ -1,7 +1,15 @@
 const express = require("express");
 const fs = require("fs");
 const app = express();
-app.use(express.json());
+const path = require("path");
+
+// Serve static files from the 'public' folder
+app.use(express.static(path.join(__dirname, "public")));
+
+// Set up a route for the root URL to serve 'home.html'
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "home.html"));
+});
 
 const PORT = 3000;
 const FILE_PATH = "reactionTimes.txt";

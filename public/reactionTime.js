@@ -36,3 +36,8 @@ function sendReactionTime(reactionTime) {
     .then(data => console.log("Data saved:", data))
     .catch(error => console.error("Error:", error));
 }
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the Reaction Time Test Server!");
+});
+
